@@ -1,0 +1,17 @@
+version: '3.5'
+
+services:
+
+  auth-service:
+    build: .
+    image: "dlish27/helloworld-auth"
+    ports:
+        - 8080:8080
+    depends_on:
+      - postgres
+
+  postgres:
+    build: db/
+    image: "dlish27/helloworld-auth-db"
+    ports:
+      - 5432:5432
